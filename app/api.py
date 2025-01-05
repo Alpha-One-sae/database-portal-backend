@@ -8,10 +8,12 @@ load_dotenv()
 app = FastAPI()
 
 class test(BaseModel):
-    test: str
+    task: str
+    status : str
+    timestamp : str
 
 @app.post('/')
 async def home(requests:test):
-    if (requests.test == "check"):
-        return "successfull!"
-    return "error"
+        # return requests.task , requests.status , requests.timestamp
+        return requests
+        

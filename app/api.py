@@ -7,13 +7,23 @@ load_dotenv()
 
 app = FastAPI()
 
-class test(BaseModel):
-    task: str
-    status : str
-    timestamp : str
+class save(BaseModel): 
+    timestamp:str
+    data:str 
 
-@app.post('/')
-async def home(requests:test):
-        # return requests.task , requests.status , requests.timestamp
-        return requests
-        
+@app.post('/save-data')
+async def home(requests:save):
+    if (requests.timestamp=="12"):
+        if(requests.data=="sanchi"):
+            return {
+                "status":"200",
+                "message":"Data saved successfully"
+            }
+        return {
+                "status":"203",
+                "message":"Error in storing data"
+            }
+    return {
+        "status" : "203",
+        "message" : "Error in storing data"
+    }

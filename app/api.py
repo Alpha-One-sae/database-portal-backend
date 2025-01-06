@@ -8,10 +8,13 @@ load_dotenv()
 app = FastAPI()
 
 class test(BaseModel):
-    test: str
+    data:str  
+    timestamp:str
 
 @app.post('/')
 async def home(requests:test):
-    if (requests.test == "check"):
-        return "successfull!"
-    return "error"
+    if (requests.data=="hello"):
+        if(requests.timestamp=="10"):
+            return "status:200\nmessage:data saved successfuly"
+        return "status:203\nmessage:error in storing data(wrong timestamp)"
+    return "status:203\nmessage:error in storing data(wrong data)"

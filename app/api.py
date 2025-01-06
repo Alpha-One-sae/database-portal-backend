@@ -15,6 +15,6 @@ class test(BaseModel):
 async def home(requests:test):
     if (requests.data=="hello"):
         if(requests.timestamp=="10"):
-            return "status:200\nmessage:data saved successfuly"
-        return "status:203\nmessage:error in storing data(wrong timestamp)"
-    return "status:203\nmessage:error in storing data(wrong data)"
+            return {"status":200 , "message":"data saved successfuly"}
+        return {"status":203 , "message":"error in storing data(wrong timeline)"}
+    return {"status":203 , "message":"error in storing data(wrong data)"}

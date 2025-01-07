@@ -2,6 +2,7 @@ from fastapi import FastAPI, requests
 from pydantic import BaseModel
 from dotenv import load_dotenv
 import os
+from pymongo import mongo_client
 
 load_dotenv()
 

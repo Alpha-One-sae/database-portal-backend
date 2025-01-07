@@ -11,7 +11,7 @@ class test(BaseModel):
     data:str  
     timestamp:str
 
-@app.post('/')
+@app.post('/save-data')
 async def home(requests:test):
     if (requests.data=="hello"):
         if(requests.timestamp=="10"):

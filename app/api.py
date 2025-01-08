@@ -2,7 +2,7 @@ from fastapi import FastAPI, requests, HTTPException, Header
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from pymongo import MongoClient
-import os
+import os 
 
 
 
@@ -26,7 +26,7 @@ class testObj(BaseModel):
 
 
 class member(BaseModel):
-    phoneNo: list
+    phone: str
 #----------- ------------------------
 
 #Headers || Request ---------------------------
@@ -41,7 +41,7 @@ async def find_member(requests:member, x_api_key: str = Header(...)):
 
     #Logic for getting the particular member
 
-    result = list(collection.find({"PHONE NO.": requests.phoneNo},{"_id":0}))
+    result = list(collection.find({"PHONE NO.": requests.phone},{"_id":0}))
 
     return result
 

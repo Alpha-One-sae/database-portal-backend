@@ -26,7 +26,7 @@ class testObj(BaseModel):
 
 
 class member(BaseModel):
-    phoneno: str
+    phoneno: int
 #----------- ------------------------
 
 #Headers || Request ---------------------------
@@ -41,7 +41,7 @@ async def find_member(requests:member, x_api_key: str = Header(...)):
 
     #Logic for getting the particular member
 
-    result = list(collection.find({"PHONE NO.": requests.phoneno},{"_id":0}))
+    result = list(collection.find({"PHONE NO." : requests.phoneno},{"_id":0}))
 
     return result
 
